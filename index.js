@@ -135,7 +135,7 @@ Hint: You can use .splice() for this
 
 function removeFlavorByName(arr, flavor){
 
-    for (i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         if(arr[i]===flavor){ arr.splice(i, 1) }
     }
     console.log(arr);
@@ -162,11 +162,8 @@ function copy(arr1, arr2){
 
 console.log('----Task 6----');
 
-const copyFlavor = [];
-console.log(copy(copyFlavor, originalFlavors));
-console.log(copyFlavor);
-
-
+const flavorCopy =[];
+console.log(copy(flavorCopy,originalFlavors));
 
 
 /* Task 7: July 7th is "World Chocolate Day" and Baskin Robins wants to create promotional materials highlighting all of their chocolate flavors. 
@@ -189,7 +186,7 @@ hint - you can use the .includes method to help you solve this */
 
 function filterByWord(arr, flavor) {
     let filtered = [];
-    for (i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         if(arr[i].includes(flavor)) {
             filtered.push(arr[i]);
         }
@@ -307,13 +304,16 @@ var regionalFlavors = ["Pink Bubblegum",
 
 console.log('----Stretch 2----');
 
+// The function below is to join 4 array into a big one and then randomly select 31 from it.
+
 function getRandomFlavors(arr1, arr2, arr3, arr4){
 
     const bigArr = arr1.concat(arr2, arr3, arr4);
     let randomArr =[];
-    
-    for (i = 0; i < 31; i++) {
-        randomArr.push(bigArr[Math.floor(Math.random() * bigArr.length)] )
+
+    for (let i = 0; i < 31; i++) {
+        let flavor=bigArr.splice(bigArr[Math.floor(Math.random() * bigArr.length)], 1 );
+        randomArr.push(flavor[0]);
     }
 
     console.log(randomArr);
