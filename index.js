@@ -196,13 +196,16 @@ function filterByWord(arr, flavor) {
     }
     console.log(filtered);
 }
+
+console.log('----Task 7----');
 filterByWord(originalFlavors, 'Chocolate');
 
 
 
 /* 🧁🍦🍨 STRETCH 🍨🍦🍫*/ 
 
-/* STRETCH 1: Write a function that returns the average number of words in an array. You should be able to use this function for any array, but can test with originalFlavors.
+/* STRETCH 1: Write a function that returns the average number of words in an array. 
+You should be able to use this function for any array, but can test with originalFlavors.
 
 Your function should accept: 
 
@@ -212,14 +215,15 @@ and should return the average number of words per item in the array.
 
 For example, getAverageWordLength(originalFlavors) should return a number between 0 and 3. */
 
-function getAverageWordLength(/*code here*/){
-
-    /*code here*/
-
+function getAverageWordLength(arr){
+    return arr.join(' ').split(' ').length / arr.length;
 }
 
+console.log('---Stretch 1---');
+console.log(Math.round(getAverageWordLength(originalFlavors)*100)/100);
 
-/* STRETCH 2: Baskin Robins now offers new flavors, seasonal flavors, and even regional flavors. Write a function that will randomly select a total of 31 flavors from originalFlavors, currentFlavors, seasonalFlavors, and regionalFlavors.
+/* STRETCH 2: Baskin Robins now offers new flavors, seasonal flavors, and even regional flavors. 
+Write a function that will randomly select a total of 31 flavors from originalFlavors, currentFlavors, seasonalFlavors, and regionalFlavors.
 
 Your function should accept 4 different arrays,
 
@@ -228,6 +232,7 @@ and should return a new array called randomFlavors with a length 31.
 forExample, getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors) might return ["Strawberry Cheesecake", "Eggnog,"..."Chocolate"].*/
 
 // Data ⬇️
+
 var newFlavors = ["Date night",
     "U.S.S Butterscotch (Stranger Things special)",
     "Honey Almond",
@@ -300,8 +305,18 @@ var regionalFlavors = ["Pink Bubblegum",
     "Chocolate Chocolate Chip Cheesecake",
     "Caramel 'n' Cookies"]
 
-function getRandomFlavors(/*code here*/){
+console.log('----Stretch 2----');
 
-    /*code here*/
+function getRandomFlavors(arr1, arr2, arr3, arr4){
 
+    const bigArr = arr1.concat(arr2, arr3, arr4);
+    let randomArr =[];
+    
+    for (i = 0; i < 31; i++) {
+        randomArr.push(bigArr[Math.floor(Math.random() * bigArr.length)] )
+    }
+
+    console.log(randomArr);
 }
+
+getRandomFlavors(originalFlavors,newFlavors,seasonalFlavors,regionalFlavors);
